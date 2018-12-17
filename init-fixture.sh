@@ -1,18 +1,22 @@
 #!/bin/bash
 
-rm -Rf ./fixtures
+CURRENT_DIRECTORY=`dirname $0`
+FIXTURES_DIRECTORY=$CURRENT_DIRECTORY/fixtures
+BAZAR_DIRECTORY=$FIXTURES_DIRECTORY/bazar
+CLEAN_DIRECTORY=$FIXTURES_DIRECTORY/bazar_clean
 
-mkdir -p ./fixtures/images ./fixtures/html ./fixtures/bazar ./fixtures/videos
-mkdir -p  ~/Scripts/fixtures/bazar/12
+rm -Rf $FIXTURES_DIRECTORY
 
-wget https://filmpipeline.com/wp-content/uploads/sites/6/2017/08/ShortScriptContestIcon.png -q -O ./fixtures/bazar/images/picture.jpg
+mkdir -p $CLEAN_DIRECTORY/images $CLEAN_DIRECTORY/html $CLEAN_DIRECTORY/videos  $BAZAR_DIRECTORY/videos $BAZAR_DIRECTORY/12
+
+wget https://filmpipeline.com/wp-content/uploads/sites/6/2017/08/ShortScriptContestIcon.png -q -O $BAZAR_DIRECTORY/images/picture.jpg
 wget https://twitter.com/ \
      https://media.melty.fr/article-3817747-thumb-f8/the-walking-dead-saison-9-episode-7-ce-soir.jpg \
-      -q -P ./fixtures/bazar
+      -q -P $BAZAR_DIRECTORY
 
-echo "Hello World, my script is ok, i'm really happy !"			 > ./fixtures/success.txt
-echo "Continue the end is not far away." 				 >> ./fixtures/success.txt
+echo "Hello World, my script is ok, i'm really happy !"			 > $FIXTURES_DIRECTORY/success.txt
+echo "Continue the end is not far away." 				 >> $FIXTURES_DIRECTORY/success.txt
 
-touch ./fixtures/videos/video.mp4
+touch $BAZAR_DIRECTORY/videos/video.mp4
 
-du -a ./fixtures
+du -a $FIXTURES_DIRECTORY
